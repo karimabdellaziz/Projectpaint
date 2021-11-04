@@ -1,19 +1,24 @@
 import java.awt.*;
 
 public class ellipse extends Figures {
-    private int semiAxysX;
-    private int semiAxysY;
+    protected int semiAxysX;
+
+    public void setSemiAxysX(int semiAxysX) {
+        this.semiAxysX = semiAxysX;
+    }
+
+    public void setSemiAxysY(int semiAxysY) {
+        this.semiAxysY = semiAxysY;
+    }
+
+    protected int semiAxysY;
 
  public ellipse(Color couleur, int semiAxysX,int semiAxysY ){
      super(couleur);
      this.semiAxysX=semiAxysX;
      this.semiAxysY=semiAxysY;
  }
-    public ellipse(int semiAxysX,int semiAxysY){
-        this.semiAxysX=semiAxysX;
-        this.semiAxysY=semiAxysY;
-    }
-
+    public ellipse(){}
 
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
@@ -23,6 +28,8 @@ public class ellipse extends Figures {
 
     @Override
     public void draw(Graphics g){}
+
+
 
     @Override
     public int getPerimeter() {

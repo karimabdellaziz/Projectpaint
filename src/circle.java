@@ -1,11 +1,9 @@
 import java.awt.*;
 
-public class circle extends Square {
+public class circle extends ellipse {
 
 
-    public circle(int length, int width) {
-        super(length, width);
-    }
+    public circle() {}
 
     public circle(Color couleur, int length, int width) {
         super(couleur, length, width);
@@ -14,5 +12,7 @@ public class circle extends Square {
     public void setBoundingBox(int heightBB, int widthBB) {
         super.setBoundingBox(heightBB, widthBB);
     }
+
+
 }
 

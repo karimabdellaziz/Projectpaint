@@ -1,7 +1,12 @@
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Window extends JFrame {
+public class Window extends JFrame implements ActionListener {
+
+private Drawing dessin;
     public Window(String Title , int x, int y){
         super(Title);
         this.setSize(x,y);
@@ -24,15 +29,25 @@ public class Window extends JFrame {
         m.add(menu2);
         contentPanel.add(m,BorderLayout.NORTH);
 
-        //creation des boutons de couleurs
+        //creation des boutons de couleurs,
         JButton Noir= new JButton("Noir");
+        Noir.setBackground(Color.black);
+        Noir.setForeground(Color.white);
         JButton Rouge= new JButton("Rouge");
+        Rouge.setBackground(ColorUIResource.RED);
         JButton Vert= new JButton("Vert");
+        Vert.setBackground(Color.green);
         JButton Bleu= new JButton("Bleu");
+        Bleu.setForeground(Color.white);
+        Bleu.setBackground(Color.blue);
         JButton Jaune= new JButton("Jaune");
+        Jaune.setBackground(Color.yellow);
         JButton Rose= new JButton("Rose");
+        Rose.setBackground(Color.pink);
         JButton Magenta= new JButton("Magenta");
+        Magenta.setBackground(Color.magenta);
         JButton Orange= new JButton("Orange");
+        Orange.setBackground(Color.ORANGE);
 
 
         // creation d'un panneau et ajout des boutons dans le panneau
@@ -49,10 +64,10 @@ public class Window extends JFrame {
 
 
         // creation des boutons permettant de selectionner la forme
-        JButton paintPackageEllipse= new JButton("paintPackage.Ellipse");
-        JButton paintPackageCercle= new JButton("paintPackage.Cercle");
-        JButton paintPackageCarre= new JButton("paintPackage.Carre");
-        JButton paintPackageRectangle= new JButton("paintPackage.Rectangle");
+        JButton paintPackageEllipse= new JButton("Ellipse");
+        JButton paintPackageCercle= new JButton("Cercle");
+        JButton paintPackageCarre= new JButton("Carre");
+        JButton paintPackageRectangle= new JButton("Rectangle");
 
         //creation d'un panneau et ajout des boutons "forme" dans le panneau
         JPanel formePanel =new JPanel();
@@ -61,6 +76,21 @@ public class Window extends JFrame {
         formePanel.add(paintPackageEllipse);
         formePanel.add(paintPackageCarre);
         formePanel.add(paintPackageRectangle);
+
+        //
+        Noir.addActionListener(this);
+        Rouge.addActionListener(this);
+        Vert.addActionListener(this);
+        Bleu.addActionListener(this);
+        Jaune.addActionListener(this);
+        Rose.addActionListener(this);
+        Magenta.addActionListener(this);
+        Orange.addActionListener(this);
+        paintPackageCarre.addActionListener(this);
+        paintPackageCercle.addActionListener(this);
+        paintPackageEllipse.addActionListener(this);
+        paintPackageRectangle.addActionListener(this);
+
 
         //creation d'un panneau contenant les deux panneau
         JPanel panneau=new JPanel();
@@ -71,12 +101,7 @@ public class Window extends JFrame {
         contentPanel.add(panneau,"South");
 
 
-
-
-
-
-        //contentPanel.add(OkButton);
-        //this.setVisible(true);
+        this.setVisible(true);
 
 
     }
@@ -85,13 +110,76 @@ public class Window extends JFrame {
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String cmd=e.getActionCommand();
+        dessin=new Drawing();
+        switch (cmd) {
+
+            case"Noir":
+                dessin.setCurrentColor(Color.BLACK);
+                System.out.println("noir");
+                break;
+            case"Rouge":
+                dessin.setCurrentColor(Color.red);
+                System.out.println("rouge");
+                break;
+            case"Vert":
+                dessin.setCurrentColor(Color.green);
+                System.out.println("green");
+                break;
+            case"Bleu":
+                dessin.setCurrentColor(Color.blue);
+                System.out.println("bleu");
+                break;
+            case"Jaune":
+                dessin.setCurrentColor(Color.yellow);
+                System.out.println("Jaune");
+                break;
+            case"Rose":
+                dessin.setCurrentColor(Color.pink);
+                System.out.println("Rose");
+                break;
+            case"Magenta":
+                dessin.setCurrentColor(Color.magenta);
+                System.out.println("Magenta");
+                break;
+            case"Orange":
+                dessin.setCurrentColor(Color.orange);
+                System.out.println("Orange");
+                break;
+            case "Rectangle":
+                dessin.addFigure(new Rectangle());
+                dessin.setCurrentFigures(new Rectangle());
+                dessin.NameFigure="Rectangle";
+                System.out.println(dessin.NameFigure);
+
+                break;
+
+            case "Cercle":
+                dessin.addFigure(new circle());
+                dessin.setCurrentFigures(new circle());
+                dessin.NameFigure="cercle";
+                System.out.println(dessin.NameFigure);
 
 
+            break;
+            case "Ellipse":
+                dessin.addFigure(new ellipse());
+                dessin.setCurrentFigures(new ellipse());
+                dessin.NameFigure="Ellipse";
+                System.out.println(dessin.NameFigure);
+                break;
+            case "Carre":
+                dessin.addFigure(new Square());
+                dessin.setCurrentFigures(new Square());
+                dessin.NameFigure="Carre";
+
+                System.out.println(dessin.NameFigure);
+                  break;
 
 
+        }
+        }
+    }
 
-
-
-
-
-}

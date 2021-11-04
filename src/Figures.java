@@ -21,7 +21,11 @@ public abstract class Figures {
     public abstract  int getSurface();
 
 @Override
-    public String toString(){return couleur.toString();}
+    public String toString(){
+    if (couleur!=null) return couleur.toString();
+    else return "";
+}
+
 
 
 }

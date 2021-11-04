@@ -41,7 +41,9 @@ public class Rectangle extends Figures {
         this.width = widthBB;
     }
     @Override
-    public void draw(Graphics g){}
+    public void draw(Graphics g){
+
+    }
     @Override
     public String toString(){return super.toString()+"" +width + "" +length;}
 }
