@@ -47,7 +47,8 @@ public class Drawing extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+    this.x=e.getX();
+    this.y=e.getY();
     }
 
     @Override

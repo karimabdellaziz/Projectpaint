@@ -27,7 +27,9 @@ public class ellipse extends Figures {
     }
 
     @Override
-    public void draw(Graphics g){}
+    public void draw(Graphics g){
+     //g.fillOval();
+    }
 
 
 
