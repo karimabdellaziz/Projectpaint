@@ -42,7 +42,7 @@ public class Rectangle extends Figures {
     }
     @Override
     public void draw(Graphics g){
-       g.drawRect();
+       //g.drawRect();
 
     }
     @Override
