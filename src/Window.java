@@ -126,7 +126,7 @@ private Drawing dessin;
                 break;
             case"Vert":
                 dessin.setCurrentColor(Color.green);
-                System.out.println("green");
+                System.out.println("vert");
                 break;
             case"Bleu":
                 dessin.setCurrentColor(Color.blue);
@@ -149,32 +149,25 @@ private Drawing dessin;
                 System.out.println("Orange");
                 break;
             case "Rectangle":
-                dessin.addFigure(new Rectangle());
-                dessin.setCurrentFigures(new Rectangle());
                 dessin.NameFigure="Rectangle";
                 System.out.println(dessin.NameFigure);
-
                 break;
 
             case "Cercle":
-                dessin.addFigure(new circle());
-                dessin.setCurrentFigures(new circle());
+
                 dessin.NameFigure="cercle";
                 System.out.println(dessin.NameFigure);
+                break;
 
-
-            break;
             case "Ellipse":
-                dessin.addFigure(new ellipse());
-                dessin.setCurrentFigures(new ellipse());
+
                 dessin.NameFigure="Ellipse";
                 System.out.println(dessin.NameFigure);
                 break;
-            case "Carre":
-                dessin.addFigure(new Square());
-                dessin.setCurrentFigures(new Square());
-                dessin.NameFigure="Carre";
 
+            case "Carre":
+
+                dessin.NameFigure="Carre";
                 System.out.println(dessin.NameFigure);
                   break;
 

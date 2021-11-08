@@ -1,31 +1,44 @@
 import java.awt.*;
 import java.awt.Color;
 public abstract class Figures {
+    //declaration des attributs
+    protected Point Origine;
+    protected Color Couleur;
 
-    public Color getC() {return couleur;}
+    // getter methode pour les attributs
+    public Color getCouleur() {
+        return Couleur;
+    }
 
-     Color couleur ;
+    public Point getOrigine() {
+        return Origine;
+    }
 
 
-    public abstract void setBoundingBox(int heightBB, int widthBB);
-
-    public abstract void draw (Graphics g) ;
-
-    public Figures(Color couleur) {
-        this.couleur = couleur;
+    // constructeur de la classe figures
+    public Figures(Color couleur,Point p) {
+        this.Couleur = couleur;
+        this.Origine = new Point(p.getX(),p.getY());
 
     }
 
-    public Figures (){};
-    public  abstract int getPerimeter();
-    public abstract  int getSurface();
-
-@Override
-    public String toString(){
-    if (couleur!=null) return couleur.toString();
-    else return "";
-}
+    public Figures() {}
 
 
+    // methodes abstraites de notre classe figures
+    public abstract void setBoundingBox(int heightBB, int widthBB);
 
+    public abstract void draw(Graphics g);
+
+    public abstract int getPerimeter();
+
+    public abstract int getSurface();
+
+    // Overrides de la method toString
+
+    @Override
+    public String toString() {
+        if (Couleur != null) return Couleur.toString();
+        else return "";
+    }
 }

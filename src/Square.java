@@ -5,9 +5,8 @@ public class Square extends Rectangle {
 
     public Square(){}
 
-    public Square(Color couleur,int length,int width){
-
-        super(couleur,length,width);
+    public Square(Color couleur,Point p,int length ){
+        super(length,length,p,couleur);
     }
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
