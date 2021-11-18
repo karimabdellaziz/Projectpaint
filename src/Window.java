@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 public class Window extends JFrame implements ActionListener {
 
 private Drawing dessin;
+
     public Window(String Title , int x, int y){
         super(Title);
         this.setSize(x,y);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         Container contentPanel=this.getContentPane();
         JMenuBar m= new JMenuBar();
@@ -101,6 +103,8 @@ private Drawing dessin;
         contentPanel.add(panneau,"South");
 
 
+        this.dessin=new Drawing();
+        contentPanel.add(dessin,"Center");
         this.setVisible(true);
 
 
@@ -113,7 +117,8 @@ private Drawing dessin;
     @Override
     public void actionPerformed(ActionEvent e) {
         String cmd=e.getActionCommand();
-        dessin=new Drawing();
+
+
         switch (cmd) {
 
             case"Noir":
@@ -155,7 +160,7 @@ private Drawing dessin;
 
             case "Cercle":
 
-                dessin.NameFigure="cercle";
+                dessin.NameFigure="Cercle";
                 System.out.println(dessin.NameFigure);
                 break;
 
@@ -173,6 +178,7 @@ private Drawing dessin;
 
 
         }
+
         }
     }
 

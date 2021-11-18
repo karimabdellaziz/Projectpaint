@@ -17,10 +17,9 @@ public class Rectangle extends Figures {
         super(couleur,p);
         this.length=0;
         this.width = 0;
-
-
     }
     public Rectangle(){}
+
     public Rectangle(int length,int width ,Point p , Color couleur){
         super(couleur,p);
         this.length = length;
@@ -29,7 +28,7 @@ public class Rectangle extends Figures {
 
 
 
-//Override car des methodes de la classe figure car rectangle herite de la classe abstraite figures
+//Override des methodes de la classe figure car rectangle herite de la classe abstraite figures
     @Override
     public int getPerimeter(){
         return 2*(this.length+this.width);
@@ -45,8 +44,9 @@ public class Rectangle extends Figures {
     }
     @Override
     public void draw(Graphics g){
-       g.fillRect(Origine.getX(),Origine.getY(),width,length);
-       g.setColor(this.Couleur);
+        g.setColor(this.Couleur);
+        g.fillRect(Origine.getX(),Origine.getY(),width,length);
+
     }
     @Override
     public String toString(){return super.toString()+"" +width + "" +length;}

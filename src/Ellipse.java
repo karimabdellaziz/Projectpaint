@@ -1,6 +1,8 @@
 import java.awt.*;
 
-public class ellipse extends Figures {
+public class Ellipse extends Figures {
+
+    //declaration des attributs
     protected int semiAxysX;
     protected int semiAxysY;
     public void setSemiAxysX(int semiAxysX) {
@@ -9,30 +11,34 @@ public class ellipse extends Figures {
     public void setSemiAxysY(int semiAxysY) {this.semiAxysY = semiAxysY;}
 
 
-
- public ellipse(Color couleur,Point p, int semiAxysX,int semiAxysY ){
+    // constructeurs rectangle
+ public Ellipse(Color couleur,Point p, int semiAxysX,int semiAxysY ){
     super(couleur,p);
      this.semiAxysX=semiAxysX;
      this.semiAxysY=semiAxysY;
  }
 
-    public ellipse(Point p,Color couleur){
+    public Ellipse(Color couleur,Point p){
         super(couleur,p);
+        semiAxysY=0;
+        semiAxysX=0;
 
     }
-    public ellipse(){
+    public Ellipse(){
 
     }
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
-        this.semiAxysX = heightBB;
-        this.semiAxysY = widthBB;
+        this.semiAxysX =widthBB;
+
+        this.semiAxysY =  heightBB;
     }
 
     @Override
     public void draw(Graphics g){
-     g.fillOval(Origine.getX(), Origine.getY(), semiAxysX,semiAxysY);
-     g.setColor(this.Couleur);
+        g.setColor(this.Couleur);
+        g.fillOval(Origine.getX(), Origine.getY(),semiAxysX,semiAxysY);
+
     }
 
 

@@ -1,21 +1,22 @@
 import java.awt.*;
 import java.awt.Color;
 public abstract class Figures {
+
+
     //declaration des attributs
     protected Point Origine;
     protected Color Couleur;
 
-    // getter methode pour les attributs
+    // getter et setter methode pour les attributs
     public Color getCouleur() {
         return Couleur;
     }
-
     public Point getOrigine() {
         return Origine;
     }
+    public void setOrigine(Point origine) {Origine = origine;}
 
-
-    // constructeur de la classe figures
+    // constructeurs de la classe figures
     public Figures(Color couleur,Point p) {
         this.Couleur = couleur;
         this.Origine = new Point(p.getX(),p.getY());
