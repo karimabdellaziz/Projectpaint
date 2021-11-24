@@ -18,7 +18,9 @@ public class Square extends Rectangle {
 //override de la methode setBoundigBox presente dans la classe abstraite
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
-        super.setBoundingBox(heightBB, widthBB);
+        this.width=heightBB;
+        this.length=heightBB;
+
     }
 
 

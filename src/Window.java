@@ -92,6 +92,9 @@ private Drawing dessin;
         paintPackageCercle.addActionListener(this);
         paintPackageEllipse.addActionListener(this);
         paintPackageRectangle.addActionListener(this);
+        Quit.addActionListener(this);
+        Save.addActionListener(this);
+        New.addActionListener(this);
 
 
         //creation d'un panneau contenant les deux panneau
@@ -158,6 +161,7 @@ private Drawing dessin;
                 System.out.println(dessin.NameFigure);
                 break;
 
+
             case "Cercle":
 
                 dessin.NameFigure="Cercle";
@@ -174,7 +178,18 @@ private Drawing dessin;
 
                 dessin.NameFigure="Carre";
                 System.out.println(dessin.NameFigure);
-                  break;
+                break;
+
+            case "Quit":
+                this.dispose();
+                break;
+
+            case"Save" :
+                dessin.save("dessin");
+                break;
+            case "New" :
+                dessin.Clear();
+
 
 
         }

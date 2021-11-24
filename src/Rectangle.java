@@ -24,6 +24,7 @@ public class Rectangle extends Figures {
         super(couleur,p);
         this.length = length;
         this.width = width;
+
     }
 
 
@@ -37,19 +38,33 @@ public class Rectangle extends Figures {
     public int getSurface(){
         return this.length*this.width;
     }
+
+
+    @Override
+    public void draw(Graphics g){
+        g.setColor(this.Couleur);
+        if(length>0 && width>0) {
+            g.fillRect(Origine.getX(), Origine.getY(), width, length);}
+        if(length<0 && width<0) {
+            g.fillRect(Origine.getX()-width, Origine.getY()-length, -width, -length);
+        }
+        if(length>0 && width<0) {
+            g.fillRect(Origine.getX()+width, Origine.getY(), -width, length);
+        }
+        if(length<0 && width>0) {
+            g.fillRect(Origine.getX(), Origine.getY()+length, width, -length);
+
+
+
+    }
+    }
+    @Override
+    public String toString(){return super.toString()+"" +width + "" +length;}
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
         this.length = heightBB;
         this.width = widthBB;
     }
-    @Override
-    public void draw(Graphics g){
-        g.setColor(this.Couleur);
-        g.fillRect(Origine.getX(),Origine.getY(),width,length);
-
-    }
-    @Override
-    public String toString(){return super.toString()+"" +width + "" +length;}
 }
 
 

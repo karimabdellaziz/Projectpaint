@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Drawing extends JPanel implements MouseListener, MouseMotionListener {
@@ -58,6 +60,7 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
             Rectangle rectangle = new Rectangle(currentColor,point);
             addFigure(rectangle);
 
+
         }
        if(NameFigure.equals("Cercle")){
            Circle cercle=new Circle(currentColor,point);
@@ -82,15 +85,6 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     length=Math.abs(y-yd);
     width=Math.abs(x-xd);
 
-    if(NameFigure.equals("Carre")){
-        if(length>width){width=length;}
-        if(width>length){length=width;}
-    }
-    if(NameFigure.equals("Cercle")){
-        if(length>width){width=length;}
-        if(width>length){length=width;}
-
-    }
     list.get(list.size()-1).setBoundingBox(length,width);
     this.repaint();
     }
@@ -107,6 +101,26 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     @Override
     public void mouseMoved(MouseEvent e) {}
 
+    public void save(String name){
+        try {
+            FileOutputStream fos = new FileOutputStream("nomFichier");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeInt(list.size());
+            for (Figures f : list) {
+                oos.writeObject(f);
+            }
+            oos.close();
 
+
+        }
+        catch (Exception e){
+            System.out.println("probleme");
+        }
+    }
+    public void Clear(){
+        list.clear();
+
+        this.repaint();
+    }
 }
 

@@ -30,7 +30,6 @@ public class Ellipse extends Figures {
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
         this.semiAxysX =widthBB;
-
         this.semiAxysY =  heightBB;
     }
 
